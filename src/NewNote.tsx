@@ -1,11 +1,9 @@
-import React,{ChangeEvent} from "react"
+import React, { ChangeEvent } from "react";
 
-export const NewNote: React.FC<{ addNote: (notes: string) => void }> = (
-  props
-) => {
+export const NewNote: React.FC<{ addNote: (note: string) => void }> = (props) => {
   const [note, setNote] = React.useState("");
 
-  const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setNote(e.target.value);
   };
   const onAddNoteClick = () => {
@@ -16,6 +14,7 @@ export const NewNote: React.FC<{ addNote: (notes: string) => void }> = (
     <div>
       <input
         onChange={handleChange}
+        value={note}
         type="text"
         name="note"
         placeholder=" Enter your Note"
